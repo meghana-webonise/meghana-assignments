@@ -1,0 +1,17 @@
+1. git add : Add one or more files
+
+2. git commit : Commit changes to head (but not yet to the remote repository)
+
+3. git push : Send changes to the master branch of your remote repository
+
+
+
+
+
+
+
+
+
+
+
+           
