@@ -1,0 +1,116 @@
+Queries for table creation:
+
+1. USER:
+  create table user( id int not null AUTO_INCREMENT, 
+  username varchar(255) not null,
+  password varchar(50) not null, 
+  user_type boolean,primary key (id));
+
+
+2. QUESTION_BANK:
+  create table question_bank(id int not null AUTO_INCREMENT, 
+  question varchar(255), user_id int not null, 
+  primary key(id), 
+  foreign key(user_id) references user(id));
+
+
+3. OPTIONS:
+  create table options(id int not null AUTO_INCREMENT, 
+  option_description varchar(255) not null, 
+  is_correct boolean not null, 
+  question_bank_id int not null, primary key(id), 
+  foreign key(question_bank_id) references question_bank(id));
+
+
+4. TEST:
+  create table test(id int not null AUTO_INCREMENT,
+  question_id int not null, assessment_id int not null, 
+  primary key(id), 
+  foreign key(question_id) references question_bank(id));
+
+
+5. ANSWER_LOG:
+  create table answer_log(id int not null AUTO_INCREMENT, 
+  test_id int not null, user_id int not null, 
+  time_taken int, chosen_answer int, 
+  primary key(id), 
+  foreign key(test_id) references test(id), 
+  foreign key(user_id) references user(id));
+
+
+
+
+Insert into table values:
+
+1. USER table
+    insert into user(username,password,user_type)  values('Sanjana','sanjana',1);
+
+2. QUESTION_BANK table
+     insert into question_bank(question,user_id)  values('Which is the largest planet in the solar system?',1);
+
+3. OPTIONS table
+      insert into options(option_description,is_correct,question_bank_id)  values('Jupiter',1,1);
+
+4. TEST table
+       insert into test(question_id,assessment_id)  values(1,1);
+
+5. ANSWER_LOG table
+        insert into answer_log(test_id,user_id,time_taken,chosen_answer)  values(1,2,15,1);
+
+
+
+
+
+
+View Query:
+     create or replace view score AS select count(o.option_description) as marks from options as o, 
+     answer_log as a,test as t where o.id=a.chosen_answer and t.id=a.test_id
+     and o.is_correct=1 and a.user_id=2 and t.assessment_id=1 ;
+
+
+
+
+
+
+Pivot Table Query:
+
+delimiter //
+create procedure temporary()
+begin
+
+create or replace view temporary1 as (select u.username,q.id as questionId, u.id as userID,t.assessment_id, q.question, o.option_description from user as u, options as o, answer_log as a, test as t,question_bank as q where o.id=a.chosen_answer and t.id=a.test_id and q.id=t.question_id and u.id =2 and u.id=a.user_id and q.id=t.question_id);
+
+
+SET @sql = NULL;
+
+
+select group_concat(distinct concat('max(if(td.questionId = ''',questionId,''',option_description,NULL)) as', quote(questionId))) into @sql from temporary as td;
+
+
+ set @sql = concat('select userid,username,',@sql,' from temporary1 as td');
+
+prepare statement from @sql;
+ execute statement;
+
+
+
+end //
+delimiter ;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
