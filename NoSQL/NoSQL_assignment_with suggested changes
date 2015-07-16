@@ -1,0 +1,155 @@
+SCEMA:
+
+USECASE :
+1. The user logs in through a common login portal .
+2. The editor can create a page, write a blog, and also comment on blogs.
+
+For Collection USERS
+
+{
+	_id : ObjectId(),
+	name: String,
+	username: String,
+	passwd: String,
+	address: String,
+	phoneNo : Number,
+	role_id : role of the user from ROLE collection,
+	lastLoginTime: time stamp
+}
+	
+For Collection ROLE
+
+{
+	_id : ObjectId(),
+	name: String
+}
+
+For Collection PAGES
+
+{
+	_id : ObjectID(),
+	title: String,
+	content: String,
+	slug: String,
+	created: Time stamp
+}
+
+For Collection BLOGS
+
+{
+	_id : ObjectID(),
+	title: String,
+	authorId: Id of the user from USER collection,
+	content: String,
+	created: time stamp,
+	comments:[
+			{
+				_id : ObjectId(),
+				created: time stamp,
+				authorId: Id of user making the comment,
+				content: String
+			}...
+	]
+}
+
+
+
+
+
+
+
+
+
+
+
+To create a database :
+use cms
+
+
+To create a collection:
+1. db.createCollection("users")
+2. db.createCollection("role")
+3. db.createCollection("pages")
+4. db.createCollection("blogs")
+
+
+
+To insert values into collection users:
+1.   db.user.insert({
+     _id:ObjectId(), 
+     name: 'Meghana', 
+     username:'Meghana', 
+     password:'meghana', 
+     address:'Malleshwaram, Bangalore',
+     phone_number:9632541103, 
+     role_id: 0, 
+     lastLoginTime:ISODate()})
+
+2.   db.users.insert({
+     _id:ObjectId(), 
+     name: 'Nischal', 
+     username:'Nischal', 
+     password:'nischal', 
+     address:'Chickmagalur,Karnataka',
+     phone_number:8147809202, 
+     role_id: 0, 
+     lastLoginTime:ISODate()})
+
+
+To insert values into collection role:
+1.   db.role.insert({_id:ObjectId(),name:'editor'})
+2.   db.role.insert({_id:ObjectId(),name:'admin'})
+3.   db.role.insert({_id:ObjectId(),name:'super_admin'})
+
+
+
+To insert values into collection pages:
+1.  db.pages.insert({_id:ObjectId(), 
+    title:"Home Page", 
+    content:"Welcome to our Home Page. You can share your experiences on the blog and comment on other blogs as well.", 
+    slug:"HomePage", 
+    created:ISODate()})
+
+
+
+
+2.  db.pages.insert({_id:ObjectId(), 
+    title:"Contact Us",
+    content:"In case of any queries you can reach us on : 9632541103.", 
+    slug:"ContactUs", 
+    created:ISODate()})
+
+
+
+
+To insert into collection Blog: 
+1. db.blog.insert({_id:ObjectId(), 
+   title:"Question on Java", 
+   author_name:"Meghana",
+   content:"What are constructors?", 
+   created:ISODate(),
+       comments:[{_id:ObjectId(),  
+       created:ISODate(), 
+       authorName:"Nischal", 
+       content:"Java constructors are the methods which are used to initialize objects. 
+       Constructor method has the same name as that of class, they are called or invoked when an 
+       object of class is created and can't be called explicitly.
+       Attributes of an object may be available when creating objects if no attribute is 
+       available then default constructor is called, 
+       also some of the attributes may be known initially. 
+       It is optional to write constructor method in a class but due to their utility they are used."}]
+   })
+
+
+
+
+
+
+
+Query:
+var a = db.blogs.find({"author_name":"Meghana"}, {author_name:1}).map(function(item){ return item.author_name; })
+db.users.find({username:a[0]},{_id:1,username:1})
+
+
+
+
