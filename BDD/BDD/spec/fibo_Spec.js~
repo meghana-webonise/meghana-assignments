@@ -1,0 +1,4 @@
+describe("is prime",function(){
+it("should be prime",function(){
+expect(isPrime(7)).toEqual(true)});
+});
