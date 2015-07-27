@@ -1,0 +1,155 @@
+
+body {
+    margin: 0;
+}
+
+.container {
+    width :940px;
+    margin:0 auto;
+}
+
+.logo {
+    height: 55px;
+    width: 135px;
+    float:left;
+    background-color: #ecab1f;
+    box-sizing: border-box;
+}
+
+.clear {
+    clear: both;
+}
+ul {
+    list-style: none;
+    float:left;
+    margin-left: 20px;
+}
+li {
+    color:#000000;
+    float:left;
+    font-family: sans-serif;
+    font-size: 16px;
+    margin-left: 30px;
+}
+a {
+    text-decoration: none;
+    color: #000000;
+    padding: 20px 0px;
+}
+
+.banner {
+    background-color: black;   
+}
+.banner .container {
+    position: relative;
+}
+.banner img {
+    width: 100%;
+}
+.banner h1 {
+    color: #ffffff;
+    font-size: 44px;
+    bottom: 60px;
+    left: 0px;
+    position: absolute;
+}
+.banner p {
+    color: #ffffff;
+    font-size: 22px;
+    left: 0px;
+    bottom: 0px;
+    position: absolute;
+}
+.menu {
+    background-color: #ecab1f;
+}
+form {
+    padding-top: 10px;
+    float:right;
+    border: solid;
+    border-width: 1px;
+    border-color: black;
+    border-radius: 2px;
+    width:200px;
+    height:20px;
+}
+.text {
+    border: 0px;
+    padding: 0px;
+}
+.search {
+    height: 15px;
+}
+.box {
+        width: 220px; 
+        height: 60px;         
+        border-radius: 5px;         
+        background-color: #ffffff;
+        color: #000000;
+        display: block;
+}
+.menu img {
+    float:right;
+    padding-top: 16px;
+    padding-right: 5px;
+}
+.menu li {
+    margin-right: 20px;
+    margin-left: 0px;
+}
+.menu li:last-child {
+    margin-right: 0px;
+}
+.menu ul
+{
+    margin-left: 0px;
+    padding-left: 0px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin: 0px;
+}
+.inner
+{
+    float : left;
+    padding-top: 20px;
+    padding-left: 10px;
+}
+h1 {
+    color: #888888;
+    font-size: 40px;
+    font-family: sans-serif;
+    padding-top: 60px;
+    margin-top:0px;
+    margin-bottom: 0px;
+}
+.happeningcontent ul {
+    padding-left: 0px;
+    margin-left: 0px;
+    margin-bottom: 110px;
+}
+.happeningcontent li {
+    margin-right: 20px;
+    margin-left: 0px;
+    width: 300px;
+    background-color: #4466ff;
+}
+
+.happeningcontent li:last-child {
+    margin-right: 0px;
+}
+.outer
+{
+    color: white;
+}
+.small {
+    font-size: 11px;
+    padding-top: 15px;
+    padding-left: 10px;
+    display: block;
+}
+.desc {
+    font-size: 18px;
+    display: block;
+    padding-bottom: 15px;
+    padding-left: 10px;
+}
