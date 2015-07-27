@@ -2,11 +2,19 @@
 =======
 
 >>>>>>> bd51da3212ee46b81509dcf075cdeda7822a3670
-.section1{
+
+
+*{
+    margin: 0px; 
+    padding: 0px;
+ }
+.section1 a{
     
     font-size: 49px;
     font-weight: bold;
+    text-decoration: none;
     padding: 10px;
+    color: black;
     
 
 }
@@ -16,6 +24,8 @@
 	font-family: Arial;
 	margin-left: 60px;
 	margin-right: 60px;
+    width: 940px;
+    margin: 0 auto;
 }
 
 

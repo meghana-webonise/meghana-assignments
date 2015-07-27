@@ -1,0 +1,73 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+
+header{
+	height: 50px;
+	background-color: black;
+	margin-bottom: 20px;
+}
+
+.span6 ul{
+	padding-top: 15px;
+	margin-left: 0px;
+}
+
+.menu li{
+	float: left;	
+}
+
+
+.menu li a{
+	text-decoration: none;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-size: 17px;
+	color: grey;
+}
+
+.menu li:first-child a{
+	font-size: 25px;
+}
+
+.menu li a:hover{
+	color: #ffffff;
+
+}
+
+form{
+	margin-left:0px;
+}
+
+.span6.txt form{
+	margin-top:10px;
+	
+}
+
+.new1{
+     margin-top: 10px;
+}
+
+.span6.txt form input{
+	height:30px;
+}
+
+
+.txt button{
+	color: #000;
+	margin-bottom: 8px;
+	margin-right: 0px;
+}
+
+.span12.hello1{
+	background-color: #F0F0F0;
+}
+
+.txt1{
+	padding: 60px 50px 60px 50px;
+}
+.hello{
+	margin-bottom: 40px;
+}
+
