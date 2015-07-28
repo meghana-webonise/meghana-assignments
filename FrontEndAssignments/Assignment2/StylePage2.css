@@ -50,10 +50,10 @@ li {
 {
 	background-color: #71c4ea;
 	height: 485px;
+	margin-bottom: 64px;
 }
 h1{
 	text-align: center;
-	margin-top: 64px;
 	margin-bottom: 70px;
 	font-size: 36px;
 	color: #444444;
@@ -81,6 +81,9 @@ footer{
 	padding-left: 300px;
 }
 
+.title{
+	padding-left: 60px;
+}
 
 .title li {
 
@@ -91,9 +94,11 @@ footer{
   	text-align: center;
 }
 
-.circle1{
-    margin-right: 0px;
-  }
+.title li:last-child{
+	 margin-right: 0px;
+}
+
+
 .title a{
   text-decoration: none;
   font-size: 18px;
